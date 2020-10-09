@@ -1,0 +1,16 @@
+
+h1,h2 {
+    margin: 20px;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.my-container {
+    margin-top: 50px;
+}
+
+textarea {
+    resize: none;
+}

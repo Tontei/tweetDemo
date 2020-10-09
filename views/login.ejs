@@ -1,0 +1,22 @@
+<% include("partials/header"); %>
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="style.css">
+
+<div class="container my-container">
+    <h1>Login</h1>
+    <form action="/login" method="POST">
+        <div class="form-group">
+            <label>username</label>
+            <input type="text" class="form-control" name="username"
+        </div>
+        <div class="form-group">
+            <label>password</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+
+
+<% include("partials/footer") %>

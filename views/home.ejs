@@ -1,0 +1,47 @@
+<% include("partials/header"); %>
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="style.css">
+
+
+<div class="container my-container">
+
+    <h1><%= userName %></h1>
+
+    <div class="tweetForm">
+        <form action="/home" method="POST">
+            <table>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <textarea name="tweet" class="form-control" rows="3"cols="100" ></textarea>
+                    </div>
+                    <div class="col-sm-12">
+                        <button class="btn btn-lg btn-primary" type="submit">Tweet</button>
+                    </div>
+                </div>
+            </table>
+        </form>
+    </div>
+
+    <div>
+        <table class="table">
+
+            <% tweets.forEach((tweet) => { %>
+            <tr>
+                <td>
+                    <%= tweets[tweets.length - tweets.indexOf(tweet) - 1].writer %> 
+                </td>
+                <td>
+                    <%= tweets[tweets.length - tweets.indexOf(tweet) - 1].tweet %> 
+                </td>
+            </tr>
+            <% }); %>
+
+        </table>
+    </div>
+</div>
+
+
+
+<script>
+</script>
+<% include("partials/footer") %>
