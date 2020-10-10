@@ -68,7 +68,6 @@ app
 
     if (req.isAuthenticated()) {
       const userName = req.user.username;
-      console.log(userName);
       Tweet.find({}, (err, foundTweets) => {
         res.render("home", {userName: userName, tweets: foundTweets});
       });
