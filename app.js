@@ -39,6 +39,8 @@ const userSchema = new Schema({
   name: String,
   password: String,
   tweets: [tweetSchema],
+  followers: [],
+  following: []
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -65,20 +67,17 @@ app
   .route("/home")
 
   .get((req, res) => {
-
     if (req.isAuthenticated()) {
       const userName = req.user.username;
       Tweet.find({}, (err, foundTweets) => {
-        res.render("home", {userName: userName, tweets: foundTweets});
+        res.render("home", { userName: userName, tweets: foundTweets, myself: req.user });
       });
-
     } else {
       res.redirect("/");
     }
   })
 
-  .post((req, res) => { 
-    
+  .post((req, res) => {
     const userName = req.user.username;
 
     const tweet = new Tweet({
@@ -144,13 +143,85 @@ app
       if (err) {
         console.log(err);
       } else {
-        passport.authenticate("local", {successRedirect: '/home',
-        failureRedirect: '/register', failureFlash: true })(req, res, () => {
+        passport.authenticate("local", {
+          successRedirect: "/home",
+          failureRedirect: "/register",
+          failureFlash: true,
+        })(req, res, () => {
           res.redirect("/home");
         });
       }
     });
   });
+
+////////////////////////////////Requests for following///////////////////
+
+app
+  .route("/follow/:username")
+
+  .get((req, res) => {
+    const follower = req.user.username;
+    const personToFollow = req.params.username;
+    if (personToFollow != follower) {
+
+      User.updateOne({username: follower}, {$push: {following: personToFollow}},(err, user) => {
+        if (err) console.log(err);
+      });
+
+      User.findOne({username: personToFollow},(err, user) => {
+        if (err) {
+          console.log(err);
+        } else {
+          if (user.followers.includes(follower)) {
+            console.log(user.followers);
+          } else {
+            User.updateOne(
+              { username: personToFollow },
+              { $push: { followers: follower } },
+              (err, doc) => {
+                if (err) console.log(err);
+              }
+            );
+          }
+        }
+      });
+    }
+    
+    res.redirect("/home");
+  });
+
+////////////////////////////////Requests for unfollowing///////////////////
+
+app.route("/unfollow/:username")
+
+.get((req, res) => {
+  const follower = req.user.username;
+  const personToUnfollow = req.params.username;
+
+  User.updateOne({username: follower}, {$pull: {following: personToUnfollow}}, (err) => {
+    if (err) console.log(err);
+  });
+
+  User.findOne({username: personToUnfollow},(err, user) => {
+    if (err) {
+      console.log(err);
+    } else {
+      if (user.followers.includes(follower)) {
+        User.updateOne(
+          { username: personToUnfollow },
+          { $pull: { followers: follower } },
+          (err, doc) => {
+            if (err) console.log(err);
+          }
+        );
+        
+      }
+    }
+  });
+
+  res.redirect("/home");
+});
+
 
 app.listen(3000, function () {
   console.log("Server running at port 3000");

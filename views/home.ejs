@@ -2,23 +2,22 @@
 <link rel="stylesheet" href="app.css">
 <link rel="stylesheet" href="style.css">
 
-
 <div class="container my-container">
 
     <h1><%= userName %></h1>
 
     <div class="tweetForm">
         <form action="/home" method="POST">
-            <table>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <textarea name="tweet" class="form-control" rows="3"cols="100" required></textarea>
-                    </div>
-                    <div class="col-sm-12">
-                        <button class="btn btn-lg btn-primary" type="submit">Tweet</button>
-                    </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <textarea name="tweet" class="form-control" rows="3" cols="100" required></textarea>
                 </div>
-            </table>
+                <div class="col-sm-12">
+                    <button class="btn btn-lg btn-primary" type="submit">Tweet</button>
+                </div>
+            </div>
+
         </form>
     </div>
 
@@ -26,13 +25,30 @@
         <table class="table">
 
             <% tweets.forEach((tweet) => { %>
+                <% let writer = tweets[tweets.length - tweets.indexOf(tweet) - 1].writer %> 
+                <% let tweetMessage =  tweets[tweets.length - tweets.indexOf(tweet) - 1].tweet %> 
             <tr>
                 <td>
-                    <%= tweets[tweets.length - tweets.indexOf(tweet) - 1].writer %> 
+                    <%= writer %>
                 </td>
                 <td>
-                    <%= tweets[tweets.length - tweets.indexOf(tweet) - 1].tweet %> 
+                    <%= tweetMessage %>
                 </td>
+                <% if (writer != userName)  {%>
+                <% if (!myself.following.includes(writer)) { %>
+                <td>
+                    <a class="btn btn-primary"
+                        href="/follow/<%=writer%>"
+                        role="button">follow</a>
+                </td>
+                <% } else {%>
+                    <td>
+                        <a class="btn btn-primary"
+                            href="/unfollow/<%=writer%>"
+                            role="button">unfollow</a>
+                    </td>
+                <% } %> 
+                <% } %>
             </tr>
             <% }); %>
 
@@ -42,6 +58,6 @@
 
 
 
-<script>
-</script>
+
+
 <% include("partials/footer") %>
