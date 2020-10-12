@@ -14,3 +14,7 @@ h1,h2 {
 textarea {
     resize: none;
 }
+
+a:hover {
+    text-decoration: none;
+}

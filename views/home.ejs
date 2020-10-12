@@ -6,6 +6,20 @@
 
     <h1><%= userName %></h1>
 
+    <table class="table">
+        <th>followers</th>
+        <th>following</th>
+        <tr>
+            <td>
+                <%= myself.followers.length  %>
+            </td>
+            <td>
+                <%= myself.following.length %>
+            </td>
+        </tr>
+    </table>
+
+
     <div class="tweetForm">
         <form action="/home" method="POST">
 
@@ -25,8 +39,8 @@
         <table class="table">
 
             <% tweets.forEach((tweet) => { %>
-                <% let writer = tweets[tweets.length - tweets.indexOf(tweet) - 1].writer %> 
-                <% let tweetMessage =  tweets[tweets.length - tweets.indexOf(tweet) - 1].tweet %> 
+            <% let writer = tweets[tweets.length - tweets.indexOf(tweet) - 1].writer %>
+            <% let tweetMessage =  tweets[tweets.length - tweets.indexOf(tweet) - 1].tweet %>
             <tr>
                 <td>
                     <%= writer %>
@@ -37,17 +51,13 @@
                 <% if (writer != userName)  {%>
                 <% if (!myself.following.includes(writer)) { %>
                 <td>
-                    <a class="btn btn-primary"
-                        href="/follow/<%=writer%>"
-                        role="button">follow</a>
+                    <a class="btn btn-primary" href="/follow/<%=writer%>" role="button">follow</a>
                 </td>
                 <% } else {%>
-                    <td>
-                        <a class="btn btn-primary"
-                            href="/unfollow/<%=writer%>"
-                            role="button">unfollow</a>
-                    </td>
-                <% } %> 
+                <td>
+                    <a class="btn btn-primary" href="/unfollow/<%=writer%>" role="button">unfollow</a>
+                </td>
+                <% } %>
                 <% } %>
             </tr>
             <% }); %>
