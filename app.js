@@ -23,7 +23,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://localhost:27017/tweeter", {
+mongoose.connect("mongodb+srv://tontei:TWEetDemo@tweetdemocluster.cp3eb.mongodb.net/tweeter", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
