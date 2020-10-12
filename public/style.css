@@ -24,14 +24,14 @@ a:hover {
     text-decoration: none;
 }
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:500px) {
     .buttons {
         margin-top: 20px;
         height: 50px;
         width: 100%;
     }
 
-    .container {
+    .container, .my-container {
         padding: 2px;
     }
 
