@@ -1,4 +1,9 @@
 
+body {
+    width: 100%;
+    margin: 0;
+}
+
 h1,h2 {
     margin: 20px;
 }
@@ -17,4 +22,21 @@ textarea {
 
 a:hover {
     text-decoration: none;
+}
+
+@media screen and (max-width:800px) {
+    .buttons {
+        margin-top: 20px;
+        height: 50px;
+        width: 100%;
+    }
+
+    .container {
+        padding: 2px;
+    }
+
+    h1,h2 {
+        width: 100%;
+        margin: 20px;
+    }
 }
