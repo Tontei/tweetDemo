@@ -13,18 +13,15 @@ h1,h2 {
 }
 
 .my-container {
-    margin-top: 50px;
+    margin-top: 200px;
 }
 
 textarea {
     resize: none;
 }
 
-a:hover {
-    text-decoration: none;
-}
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width:900px) {
     .buttons {
         margin-top: 20px;
         height: 50px;

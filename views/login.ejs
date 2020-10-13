@@ -2,19 +2,21 @@
 <link rel="stylesheet" href="app.css">
 <link rel="stylesheet" href="style.css">
 
-<div class="container my-container">
-    <h1>Login</h1>
-    <form action="/login" method="POST">
+<div class="container my-container text-center">
+    <h1 class="h1 mb-3 font-weight-heavy">Login</h1>
+    <form action="/login" class="form form-signin" method="POST">
+
         <div class="form-group">
-            <label>username</label>
-            <input type="text" class="form-control" name="username"
+            <input type="text" class="form-control top" name="username" placeholder="username"/>
         </div>
+
         <div class="form-group">
-            <label>password</label>
-            <input type="password" class="form-control" name="password">
+            <input type="password" class="form-control bottom" name="password" placeholder="password">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        
+        <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
     </form>
+
 
 </div>
 
