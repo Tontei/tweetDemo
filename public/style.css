@@ -48,7 +48,8 @@ textarea {
     }
 
     .intro {
-
+        padding: 5%;
+        margin: 0;
     }
 
     .my-container {
@@ -66,7 +67,7 @@ textarea {
     }
 
     .header, h1,p {
-        margin: 20%;
+        margin: 10%;
     }
 
     
