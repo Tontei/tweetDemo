@@ -1,12 +1,10 @@
-<% include("partials/header"); %>
-<link rel="stylesheet" href="app.css">
-<link rel="stylesheet" href="style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%- include("partials/header"); %>
 
 
-<div class="container my-container text-center">
+<div class="my-container">
+    
     <h1 class="h1 mb-3 font-weight-heavy">Login</h1>
-    <form action="/login" class="form form-signin" method="POST">
+    <form action="/login" class="form" method="POST">
 
         <div class="form-group">
             <input type="text" class="form-control top" name="username" placeholder="username"/>
@@ -19,8 +17,7 @@
         <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
     </form>
 
-
 </div>
 
 
-<% include("partials/footer") %>
+<%- include("partials/footer") %>

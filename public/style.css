@@ -1,6 +1,5 @@
 
 body {
-    width: 100%;
     margin: 0;
 }
 
@@ -12,7 +11,9 @@ body {
 
 .cta {
     color:  rgb(80, 141, 255);
-    margin: 5% 0 0;
+    font-weight: lighter;
+    font-size: 3rem;
+    margin: 5%;
 }
 
 .header {
@@ -20,55 +21,101 @@ body {
 }
 
 .buttons {
-    /* padding: 5% 20%; */
-    margin: 5% 0;
+    padding: 2% 5%;
+    margin: 0 5%;
 }
 
 .button-container {
-    position: absolute;
-    padding: 0 10%;
-    left: 25%;
-    right: 25%;
-    margin: 5% 0;
+    margin: 5%;
+    text-align: center;
 }
 
 .my-container {
-    margin-top: 10%;
+    margin: 0;
+    padding: 12%  10%;
 }
 
 textarea {
     resize: none;
 }
 
+footer {
+    background-color:  rgb(80, 141, 255);
+    color: white;
+    padding: 5% 0;
+    margin-top: 20%;
+    text-align: center;
+}
+
+.login-button {
+    border-radius: 3px;
+    border: 0;
+    background-color:  rgb(80, 141, 255);
+    font-size: 1rem;
+    padding: 4% 15%;
+}
+
+.login-button-text, .login-button-text:hover {
+    color:white;
+    text-decoration: none;
+}
+
+.register-button {
+    border-radius: 3px;
+    border: 0;
+    background-color: white;
+    outline:  rgb(80, 141, 255) auto;
+    font-size: 1rem;
+    padding: 4% 15%;
+}
+
+.register-button-text, .register-button-text:hover {
+    color:  rgb(80, 141, 255);
+    text-decoration: none;
+}
+
+
 
 @media screen and (max-width:768px) {
     .buttons {
         margin: 5% 2%;
-        padding: 10% 40%;
+        padding: 7% 19%;
     }
 
+    .cta {
+        padding: 70% 0;
+    }
     .intro {
-        padding: 5%;
+        padding: 70% 0;
         margin: 0;
     }
 
     .my-container {
-        padding: 0;
+        padding: 30% 1% 30%;
         margin: 0;
     }
 
     .button-container {
         margin: 0 0;
-        position: absolute;
-        padding: 0 5%;
-        left: 15%;
-        right: 15%;
-
     }
 
-    .header, h1,p {
+    .header, h1{
+        margin: 0;
+        font-size: 5rem;
+    }
+
+    p {
         margin: 10%;
     }
 
+    footer {
+        padding: 10% 0;
+        position: absolute;
+        top: 1800px;
+        width: 100%;
+    }
     
+    .login-button, .register-button {
+        padding: 6% 20%;
+    }
 }

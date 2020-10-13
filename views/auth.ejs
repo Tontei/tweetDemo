@@ -1,39 +1,31 @@
-<% include("partials/header"); %>
-<link rel="stylesheet" href="app.css">
-<link rel="stylesheet" href="style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%- include("partials/header"); %>
+
 
 <div class="text-center intro">
     <div>
         <h1 class="header display-2">Tontei's Twitter clone</h1>
-        <p class="lead">This is my version of twitter.</p>
     </div>
+
 </div>
 
-<div class="text-center">
-    <div class="text-center cta">
-        <p class="display-4">Register | | login</p>
+
+
+<div class="text-center cta">
+
+    <div class="">
+        <p class="">Register | | login</p>
     </div>
+
+
 
     <div class="button-container">
 
+        <a href="/register" class="register-button register-button-text">Register</a>
+        <a href="/login" class="login-button login-button-text">Login</a>
 
-        <div class="row">
-
-            <div class="col-lg-6 col-sm-12">
-                <a href="/register" class="btn btn-block btn-outline-primary buttons btn-lg" role="button">Register</a>
-            </div>
-
-            <div class="col-lg-6 col-sm-12">
-                <a href="/login" class="btn btn-block btn-primary buttons btn-lg" role="button">
-                    Login
-                </a>
-            </div>
-
-        </div>
     </div>
 </div>
 
+<footer>Tontei 2020</footer>
 
-
-<% include("partials/footer") %>
+<%- include("partials/footer") %>
