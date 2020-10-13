@@ -44,10 +44,11 @@ textarea {
 @media screen and (max-width:768px) {
     .buttons {
         margin: 5% 2%;
-        padding: 50% 90% 50% 90%;
+        padding: 10% 40%;
     }
 
     .intro {
+
     }
 
     .my-container {
