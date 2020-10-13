@@ -68,4 +68,8 @@ textarea {
         font-size: xx-large;
         margin: 20%;
     }
+
+    body {
+        background-color: yellow;
+    }
 }
