@@ -2,34 +2,40 @@
 <link rel="stylesheet" href="app.css">
 <link rel="stylesheet" href="style.css">
 
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1 class="display-4">Tontei's Twitter clone</h1>
-        <p class="lead">This is my version of twitter, enjoy anonymous messaging.</p>
-    </div>
-</div>
 
-<div class="button-container">
+<div class="text-center intro">
     <div>
-        <h2 class="display-4">Register or login</h2>
-    </div>
-    
-
-    <div class="row">
-
-        <div class="col-lg-6 col-sm-12">
-            <a href="/register" class="btn btn-outline-primary buttons btn-lg" role="button">
-                Register
-            </a>
-        </div>
-
-        <div class="col-lg-6 col-sm-12">
-            <a href="/login" class="btn btn-primary buttons btn-lg" role="button">
-                Login
-            </a>
-        </div>
-
+        <h1 class="header display-2">Tontei's Twitter clone</h1>
+        <p class="lead">This is my version of twitter.</p>
     </div>
 </div>
+
+<div class="text-center">
+    <div class="text-center cta">
+        <p class="display-4">Register | | login</p>
+    </div>
+
+    <div class="button-container">
+
+
+        <div class="row">
+
+            <div class="col-lg-6 col-sm-12">
+                <a href="/register" class="btn btn-block btn-outline-primary buttons btn-lg" role="button">
+                    Register
+                </a>
+            </div>
+
+            <div class="col-lg-6 col-sm-12">
+                <a href="/login" class="btn btn-block btn-primary buttons btn-lg" role="button">
+                    Login
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
 
 <% include("partials/footer") %>
