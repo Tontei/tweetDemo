@@ -66,11 +66,8 @@ textarea {
     }
 
     .header, h1,p {
-        font-size: xx-large;
         margin: 20%;
     }
 
-    body {
-        background-color: yellow;
-    }
+    
 }
