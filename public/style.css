@@ -41,14 +41,13 @@ textarea {
 }
 
 
-@media (max-width:900px) {
+@media screen and (max-width:900px) {
     .buttons {
         margin: 5% 2%;
-        padding: 20% 40%;
+        padding: 20% 70% 20% 70%;
     }
 
     .intro {
-        
     }
 
     .my-container {
@@ -60,8 +59,8 @@ textarea {
         margin: 0 0;
         position: absolute;
         padding: 0 5%;
-        left: 25%;
-        right: 25%;
+        left: 15%;
+        right: 15%;
 
     }
 
