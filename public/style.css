@@ -1,6 +1,7 @@
 
 body {
     margin: 0;
+    background-color: rgb(190, 179, 179);
 }
 
 .intro {
@@ -20,10 +21,6 @@ body {
     margin: 20px;
 }
 
-.buttons {
-    padding: 2% 5%;
-    margin: 0 5%;
-}
 
 .button-container {
     margin: 5%;
@@ -51,8 +48,8 @@ footer {
     border-radius: 3px;
     border: 0;
     background-color:  rgb(80, 141, 255);
-    font-size: 1rem;
-    padding: 4% 15%;
+    font-size: 2rem;
+    padding: 2% 10%;
 }
 
 .login-button-text, .login-button-text:hover {
@@ -65,8 +62,8 @@ footer {
     border: 0;
     background-color: white;
     outline:  rgb(80, 141, 255) auto;
-    font-size: 1rem;
-    padding: 4% 15%;
+    font-size: 2rem;
+    padding: 2% 10%;
 }
 
 .register-button-text, .register-button-text:hover {
@@ -74,19 +71,24 @@ footer {
     text-decoration: none;
 }
 
+.my-table {
+    margin-left: 70%;
+}
+
+.follower-data {
+    border: 30px solid rgb(190, 179, 179);
+    border-top: 0;
+    text-align: center;
+}
 
 
 @media screen and (max-width:768px) {
-    .buttons {
-        margin: 5% 2%;
-        padding: 7% 19%;
-    }
 
     .cta {
-        padding: 70% 0;
+        padding: 40% 0;
     }
     .intro {
-        padding: 70% 0;
+        padding: 60% 0;
         margin: 0;
     }
 
@@ -97,9 +99,11 @@ footer {
 
     .button-container {
         margin: 0 0;
+        padding: 30% 15%;
+        height: 70%
     }
 
-    .header, h1{
+    .header{
         margin: 0;
         font-size: 5rem;
     }
@@ -110,12 +114,17 @@ footer {
 
     footer {
         padding: 10% 0;
-        position: absolute;
-        top: 1800px;
         width: 100%;
     }
     
     .login-button, .register-button {
-        padding: 6% 20%;
+        padding: 4% 20%;
+        margin: 20% 10%;
+        font-size: 1.3rem;
     }
+
+    .my-table {
+        margin-left: 30%;
+    }
+    
 }
