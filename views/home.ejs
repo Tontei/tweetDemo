@@ -29,7 +29,7 @@
                     <textarea name="tweet" class="form-control" rows="3" cols="100" required></textarea>
                 </div>
                 <div class="col-sm-12 form-group">
-                    <button class="btn btn-lg btn-primary" type="submit">Tweet</button>
+                    <button class="btn btn-lg btn-dark" type="submit">Tweet</button>
                 </div>
             </div>
 
@@ -52,11 +52,11 @@
                 <% if (writer != userName)  {%>
                 <% if (!myself.following.includes(writer)) { %>
                 <td>
-                    <a class="" href="/follow/<%=writer%>" role="button">follow</a>
+                    <a class="follow-link" href="/follow/<%=writer%>" role="button">follow</a>
                 </td>
                 <% } else {%>
                 <td>
-                    <a class="" href="/unfollow/<%=writer%>" role="button">unfollow</a>
+                    <a class="follow-link" href="/unfollow/<%=writer%>" role="button">unfollow</a>
                 </td>
                 <% } %>
                 <% } %>

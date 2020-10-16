@@ -1,130 +1,137 @@
-
 body {
-    margin: 0;
-    background-color: rgb(190, 179, 179);
+  margin: 0;
+  background-color: #cdc9c3;
 }
 
 .intro {
-    background-color: rgb(80, 141, 255);
-    color: white;
-    padding: 5%;
+  background-color: #555555;
+  color: rgb(190, 179, 179);
+  padding: 5%;
 }
 
 .cta {
-    color:  rgb(80, 141, 255);
-    font-weight: lighter;
-    font-size: 3rem;
-    margin: 5%;
+  color: #555555;
+  font-weight: lighter;
+  font-size: 3rem;
+  margin: 5%;
 }
 
 .header {
-    margin: 20px;
+  margin: 20px;
 }
 
-
 .button-container {
-    margin: 5%;
-    text-align: center;
+  margin: 5%;
+  text-align: center;
 }
 
 .my-container {
-    margin: 0;
-    padding: 12%  10%;
+  margin: 0;
+  padding: 12% 10%;
 }
 
 textarea {
-    resize: none;
+  resize: none;
 }
 
 footer {
-    background-color:  rgb(80, 141, 255);
-    color: white;
-    padding: 5% 0;
-    margin-top: 20%;
-    text-align: center;
+  background-color: #555555;
+  color: #cdc9c3;
+  padding: 5% 0;
+  margin-top: 20%;
+  text-align: center;
+}
+
+.follow-link {
+    color:  #555555;
+}
+
+.follow-link:hover {
+  color: #352727;
+  text-decoration: none;
 }
 
 .login-button {
-    border-radius: 3px;
-    border: 0;
-    background-color:  rgb(80, 141, 255);
-    font-size: 2rem;
-    padding: 2% 10%;
+  border-radius: 3px;
+  border: 0;
+  background-color: #555555;
+  font-size: 2rem;
+  padding: 2% 10%;
 }
 
-.login-button-text, .login-button-text:hover {
-    color:white;
-    text-decoration: none;
+.login-button-text,
+.login-button-text:hover {
+  color: white;
+  text-decoration: none;
 }
 
 .register-button {
-    border-radius: 3px;
-    border: 0;
-    background-color: white;
-    outline:  rgb(80, 141, 255) auto;
-    font-size: 2rem;
-    padding: 2% 10%;
+  border-radius: 3px;
+  border: 0;
+  background-color: #cdc9c3;
+  outline: #555555 auto;
+  font-size: 2rem;
+  padding: 2% 10%;
 }
 
-.register-button-text, .register-button-text:hover {
-    color:  rgb(80, 141, 255);
-    text-decoration: none;
+.register-button-text,
+.register-button-text:hover {
+  color: #555555;
+  text-decoration: none;
 }
 
 .my-table {
-    margin-left: 70%;
+  margin-left: 70%;
 }
 
 .follower-data {
-    border: 30px solid rgb(190, 179, 179);
-    border-top: 0;
-    text-align: center;
+  border: 30px solid#cdc9c3;
+  border-top: 0;
+  text-align: center;
 }
 
+@media screen and (max-width: 768px) {
+  .cta {
+    padding: 40% 0;
+  }
+  .intro {
+    padding: 60% 0;
+    margin: 0;
+  }
 
-@media screen and (max-width:768px) {
+  .my-container {
+    padding: 30% 1% 30%;
+    margin: 0;
+  }
 
-    .cta {
-        padding: 40% 0;
-    }
-    .intro {
-        padding: 60% 0;
-        margin: 0;
-    }
+  .button-container {
+    margin: 0 0;
+    padding: 30% 15%;
+    height: 70%;
+  }
 
-    .my-container {
-        padding: 30% 1% 30%;
-        margin: 0;
-    }
+  .header {
+    margin: 0;
+    font-size: 5rem;
+  }
 
-    .button-container {
-        margin: 0 0;
-        padding: 30% 15%;
-        height: 70%
-    }
+  p {
+    margin: 10%;
+  }
 
-    .header{
-        margin: 0;
-        font-size: 5rem;
-    }
+  footer {
+    padding: 10% 0;
+    width: 100%;
+  }
 
-    p {
-        margin: 10%;
-    }
+  .login-button,
+  .register-button {
+    padding: 4% 20%;
+    margin: 20% 10%;
+    font-size: 1.3rem;
+  }
 
-    footer {
-        padding: 10% 0;
-        width: 100%;
-    }
-    
-    .login-button, .register-button {
-        padding: 4% 20%;
-        margin: 20% 10%;
-        font-size: 1.3rem;
-    }
-
-    .my-table {
-        margin-left: 30%;
-    }
-    
+  .my-table {
+    margin-left: 30%;
+  }
 }
