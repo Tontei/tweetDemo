@@ -5,14 +5,16 @@
 
     <h1><%= userName %></h1>
 
-    <table class="table">
-        <th>followers</th>
-        <th>following</th>
+    <table class="my-table">
         <tr>
-            <td>
+            <td class="follower-data"><p>followers</p></td>
+            <td class="follower-data"><p>following</p></td>
+        </tr>
+        <tr>
+            <td class="follower-data">
                 <%= myself.followers.length  %>
             </td>
-            <td>
+            <td class="follower-data">
                 <%= myself.following.length %>
             </td>
         </tr>
@@ -50,11 +52,11 @@
                 <% if (writer != userName)  {%>
                 <% if (!myself.following.includes(writer)) { %>
                 <td>
-                    <a class="btn btn-primary" href="/follow/<%=writer%>" role="button">follow</a>
+                    <a class="" href="/follow/<%=writer%>" role="button">follow</a>
                 </td>
                 <% } else {%>
                 <td>
-                    <a class="btn btn-primary" href="/unfollow/<%=writer%>" role="button">unfollow</a>
+                    <a class="" href="/unfollow/<%=writer%>" role="button">unfollow</a>
                 </td>
                 <% } %>
                 <% } %>
