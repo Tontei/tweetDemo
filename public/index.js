@@ -18,7 +18,7 @@ function addRow(table, row) {
 function loadTweets() {
   const table = $(".tweet-table");
 
-  fetch("http://localhost:3000/getTweets")
+  fetch("http://tonteitweetdemo.herokuapp.com/getTweets")
     .then((response) => response.json())
     .then((data) => {
       data.forEach(function (element) {
@@ -38,7 +38,7 @@ function addTweet() {
   if (tweetValue.includes("<")) {
     alert("injections are not allowed");
   } else {
-    fetch("http://localhost:3000/home", {
+    fetch("http://tonteitweetdemo.herokuapp.com/home", {
     headers: {
       "Content-type" : "application/json"
     },
