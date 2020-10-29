@@ -3,6 +3,61 @@ body {
   background-color: #cdc9c3;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.tweet-table {
+  margin-top: 30px;
+
+} 
+
+.name {
+  padding-left: 5px;
+}
+
+.name-container {
+  background-color: #555555;
+  color:#cdc9c3;
+  font-weight: bold;
+  margin-bottom: 50px;
+  margin-top: 0;
+  text-align: center;
+  padding: 10px 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-stretch: expanded;
+}
+
+
+.full-tweet {
+  margin: 50px 0;
+}
+
+.tweet-writer {
+  background-color:#555555;
+  color: white;
+  font-size: 1.1rem;
+  margin: auto -16px;
+  padding: 16px 32px;
+  width: 370px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8);
+}
+
+.tweet-text {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  width: 300px;
+  margin: 16px 0;
+  margin-top: 0;
+  margin-bottom: 70px;
+  float: left;
+
+}
+
 .intro {
   background-color: #555555;
   color: rgb(190, 179, 179);
@@ -27,7 +82,11 @@ body {
 
 .my-container {
   margin: 0;
-  padding: 12% 10%;
+  padding: 10% 5%;
+}
+
+.tweeting-container {
+  padding-top: 0;
 }
 
 textarea {
@@ -90,6 +149,7 @@ footer {
   text-align: center;
 }
 
+
 @media screen and (max-width: 768px) {
   .cta {
     padding: 40% 0;
@@ -100,13 +160,14 @@ footer {
   }
 
   .my-container {
-    padding: 30% 1% 30%;
     margin: 0;
+    padding: 10% 0;
   }
 
   .button-container {
     margin: 0 0;
     padding: 30% 15%;
+    
     height: 70%;
   }
 
@@ -133,5 +194,36 @@ footer {
 
   .my-table {
     margin-left: 30%;
+  }
+
+  .tweeting-container {
+    padding-top: 0;
+  }
+  
+  .tweet-writer {
+    background-color:#555555;
+    color: white;
+    font-size: 1.1rem;
+    margin: auto -16px;
+    padding: 16px 32px;
+    width: 200px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8);
+  }
+  
+  .tweet-text {
+    background: #fff;
+    /* border-radius: 7px; */
+    box-shadow: 0 2px 5px #ccc;
+    padding: 10px;
+    width: 250px;
+    margin: 13px 0;
+    margin-top: 0;
+    float: left;
+  
+  }
+
+  .full-tweet {
+    border-left: 20px solid  #cdc9c3;
+    border-top: 30px solid  #cdc9c3;
   }
 }

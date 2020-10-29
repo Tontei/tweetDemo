@@ -1,67 +1,34 @@
 <%- include("partials/header.ejs"); %>
 
 
-<div class="container my-container">
+<div class="tweeting-container my-container">
 
-    <h1><%= userName %></h1>
+    
 
-    <table class="my-table">
-        <tr>
-            <td class="follower-data"><p>followers</p></td>
-            <td class="follower-data"><p>following</p></td>
-        </tr>
-        <tr>
-            <td class="follower-data">
-                <%= myself.followers.length  %>
-            </td>
-            <td class="follower-data">
-                <%= myself.following.length %>
-            </td>
-        </tr>
-    </table>
+    <div class="name-container">
+        <h1 class="name"><%= userName %></h1>
+    </div>
 
 
-    <div class="tweetForm">
-        <form action="/home" method="POST">
+    <div class="tweet-form">
+        <!-- <form action="" method="POST"> -->
 
             <div class="row">
                 <div class="col-sm-12 form-group">
-                    <textarea name="tweet" class="form-control" rows="3" cols="100" required></textarea>
+                    <textarea name="tweet" id="tweet" class="form-control tweet" rows="2" cols="70" required></textarea>
                 </div>
                 <div class="col-sm-12 form-group">
-                    <button class="btn btn-lg btn-dark" type="submit">Tweet</button>
+                    <button class="btn btn-lg btn-dark tweet-button" >Tweet</button>
                 </div>
             </div>
 
-        </form>
+        <!-- </form> -->
     </div>
 
     <div>
-        <table class="table">
+        <table class="tweet-table row">
 
-            <% tweets.forEach((tweet) => { %>
-            <% let writer = tweets[tweets.length - tweets.indexOf(tweet) - 1].writer %>
-            <% let tweetMessage =  tweets[tweets.length - tweets.indexOf(tweet) - 1].tweet %>
-            <tr>
-                <td>
-                    <%= writer %>
-                </td>
-                <td>
-                    <%= tweetMessage %>
-                </td>
-                <% if (writer != userName)  {%>
-                <% if (!myself.following.includes(writer)) { %>
-                <td>
-                    <a class="follow-link" href="/follow/<%=writer%>" role="button">follow</a>
-                </td>
-                <% } else {%>
-                <td>
-                    <a class="follow-link" href="/unfollow/<%=writer%>" role="button">unfollow</a>
-                </td>
-                <% } %>
-                <% } %>
-            </tr>
-            <% }); %>
+            
 
         </table>
     </div>
@@ -70,4 +37,4 @@
 
 <footer>Tontei 2020</footer>
 
-<%- include("partials/footer") %>
+<%- include("partials/footer.ejs") %>

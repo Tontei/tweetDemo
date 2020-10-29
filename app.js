@@ -2,15 +2,20 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const ejs = require("ejs");
+const cors = require("cors");
 const Schema = mongoose.Schema;
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 
 const app = express();
+
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.use(
   session({
@@ -41,7 +46,7 @@ const userSchema = new Schema({
   password: String,
   tweets: [tweetSchema],
   followers: [],
-  following: []
+  following: [],
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -70,33 +75,34 @@ app
   .get((req, res) => {
     if (req.isAuthenticated()) {
       const userName = req.user.username;
-      Tweet.find({}, (err, foundTweets) => {
-        res.render("home", { userName: userName, tweets: foundTweets, myself: req.user });
-      });
+      res.render("home", {userName: userName});
     } else {
       res.redirect("/");
     }
   })
 
   .post((req, res) => {
+    const { tweet } = req.body;
     const userName = req.user.username;
 
-    const tweet = new Tweet({
+    const tweetObj = new Tweet({
       writer: userName,
-      tweet: req.body.tweet,
+      tweet: tweet,
     });
 
-    tweet.save();
+    tweetObj.save();
 
     User.updateOne(
       { username: userName },
-      { $push: { tweets: tweet } },
+      { $push: { tweets: tweetObj } },
       (err, doc) => {
         if (err) console.log(err);
-      }
+        else {
+          res.json(tweetObj);
+        }
+      } 
     );
 
-    res.redirect("/home");
   });
 
 ////////////////////////////////Requests for the register route///////////////////
@@ -164,12 +170,15 @@ app
     const follower = req.user.username;
     const personToFollow = req.params.username;
     if (personToFollow != follower) {
+      User.updateOne(
+        { username: follower },
+        { $push: { following: personToFollow } },
+        (err, user) => {
+          if (err) console.log(err);
+        }
+      );
 
-      User.updateOne({username: follower}, {$push: {following: personToFollow}},(err, user) => {
-        if (err) console.log(err);
-      });
-
-      User.findOne({username: personToFollow},(err, user) => {
+      User.findOne({ username: personToFollow }, (err, user) => {
         if (err) {
           console.log(err);
         } else {
@@ -187,41 +196,65 @@ app
         }
       });
     }
-    
+
     res.redirect("/home");
   });
 
 ////////////////////////////////Requests for unfollowing///////////////////
 
-app.route("/unfollow/:username")
+app
+  .route("/unfollow/:username")
 
-.get((req, res) => {
-  const follower = req.user.username;
-  const personToUnfollow = req.params.username;
+  .get((req, res) => {
+    const follower = req.user.username;
+    const personToUnfollow = req.params.username;
 
-  User.updateOne({username: follower}, {$pull: {following: personToUnfollow}}, (err) => {
-    if (err) console.log(err);
-  });
-
-  User.findOne({username: personToUnfollow},(err, user) => {
-    if (err) {
-      console.log(err);
-    } else {
-      if (user.followers.includes(follower)) {
-        User.updateOne(
-          { username: personToUnfollow },
-          { $pull: { followers: follower } },
-          (err, doc) => {
-            if (err) console.log(err);
-          }
-        );
-        
+    User.updateOne(
+      { username: follower },
+      { $pull: { following: personToUnfollow } },
+      (err) => {
+        if (err) console.log(err);
       }
-    }
+    );
+
+    User.findOne({ username: personToUnfollow }, (err, user) => {
+      if (err) {
+        console.log(err);
+      } else {
+        if (user.followers.includes(follower)) {
+          User.updateOne(
+            { username: personToUnfollow },
+            { $pull: { followers: follower } },
+            (err, doc) => {
+              if (err) console.log(err);
+            }
+          );
+        }
+      }
+    });
+
+    res.redirect("/home");
   });
 
-  res.redirect("/home");
+/////////////////////////////get all tweets
+
+
+app.get("/getTweets", (req, res) => {
+  
+    if (req.isAuthenticated()) {
+      Tweet.find({}, (err, foundTweets) => {
+        res.json(foundTweets);
+      });
+  }
 });
+
+/////////////////////////////get all tweets for one user
+
+
+
+
+
+
 
 
 let port = process.env.PORT;
