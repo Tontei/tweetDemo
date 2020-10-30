@@ -45,7 +45,10 @@ function addTweet() {
 }
 
 tweetButton.on("click", function () {
-  addTweet();
+  if (!$("#tweet").val() == "") {
+    addTweet();
+  }
+  
 });
 
 $(loadTweets());
