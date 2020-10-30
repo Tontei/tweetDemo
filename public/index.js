@@ -17,7 +17,7 @@ function addRow(table, row) {
 function loadTweets() {
   const table = $(".tweet-table");
 
-  fetch(`${localhost}getTweets`)
+  fetch(`${foreignhost}getTweets`)
     .then((response) => response.json())
     .then((data) => {
       data.forEach(function (element) {
@@ -33,7 +33,7 @@ function addTweet() {
   tweetQuery.val("");
   const obj = { tweet: tweetValue };
 
-  fetch(`${localhost}home`, {
+  fetch(`${foreignhost}home`, {
     headers: {
       "Content-type": "application/json",
     },
